@@ -158,10 +158,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Images\photo_5316516549026239216_y.jpg" />
     <Content Include="Models\PetsDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PetsDB.Context.cs</LastGenOutput>

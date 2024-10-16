@@ -8,7 +8,52 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PetsPage">
 
-    <Grid>
-        
-    </Grid>
+	<Grid Margin="10">
+		<!-- Выпадающий список для сортировки -->
+		<ComboBox x:Name="SortComboBox" 
+                  SelectionChanged="SortComboBox_SelectionChanged" 
+                  Margin="0,0,0,10">
+			<ComboBoxItem Content="Сортировать по имени" />
+			<ComboBoxItem Content="Сортировать по возрасту" />
+			<ComboBoxItem Content="Сортировать по породе" />
+			<!-- Добавьте другие варианты сортировки по необходимости -->
+		</ComboBox>
+
+		<!-- Поле для поиска питомцев -->
+		<TextBox x:Name="SearchTextBox" 
+                 TextChanged="SearchTextBox_TextChanged" 
+                 Margin="0,10,0,10" 
+                 Height="30" 
+                 Foreground="Gray" 
+                 Background="White" 
+                 BorderBrush="Gray" 
+                 BorderThickness="1" 
+                 Padding="5" 
+                 FontSize="14" 
+                 GotFocus="SearchTextBox_GotFocus"
+                 LostFocus="SearchTextBox_LostFocus"
+                 Text="Поиск питомца..." />
+
+		<!-- Список для отображения питомцев -->
+		<ListView x:Name="PetsListView" 
+                  Margin="0,50,0,10">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal" Margin="5">
+						<TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,10,0"/>
+						<TextBlock Text="{Binding Age}" Margin="0,0,10,0"/>
+						<TextBlock Text="{Binding Breed}" />
+					</StackPanel>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<!-- Кнопка для добавления питомца -->
+		<Button x:Name="AddPetBtn" 
+                Content="Добавить питомца" 
+                Click="AddPetBtn_Click" 
+                Margin="0,300,0,0" 
+                Width="120" 
+                Height="30"/>
+	</Grid>
 </Page>

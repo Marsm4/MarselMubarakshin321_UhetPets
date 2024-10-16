@@ -40,13 +40,20 @@ namespace MarselMubarakshin321_UhetPets.Pages
 
             if (user != null)
             {
-                if (user.Rolle == "Андрей пирокинезис")
+                try
                 {
-                    NavigationService.Navigate(new PetsPage("Ра"));
+                    if (user.Rolle == "Андрей пирокинезис")
+                    {
+                        NavigationService.Navigate(new PetsPage("Ра"));
+                    }
+                    else if (user.Rolle == "Деля")
+                    {
+                        NavigationService.Navigate(new PetsPage("Нуби"));
+                    }
                 }
-                else if (user.Rolle == "Деля")
+                catch (Exception ex)
                 {
-                    NavigationService.Navigate(new PetsPage("Нуби"));
+                    MessageBox.Show("Ошибка навигации: " + ex.Message);
                 }
             }
             else

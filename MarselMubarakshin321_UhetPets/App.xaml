@@ -3,7 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MarselMubarakshin321_UhetPets"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
+	<Application.Resources>
+		<Style x:Key="PlaceholderTextBoxStyle" TargetType="TextBox">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="TextBox">
+						<Grid>
+							<ScrollViewer x:Name="PART_ContentHost" />
+							<TextBlock x:Name="Placeholder"
+                                       Text="{TemplateBinding Tag}"
+                                       Foreground="Gray"
+                                       Margin="5,0,0,0"
+                                       IsHitTestVisible="False"
+                                       VerticalAlignment="Center"
+                                       Visibility="Collapsed"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="Text" Value="">
+								<Setter TargetName="Placeholder" Property="Visibility" Value="Visible" />
+							</Trigger>
+							<Trigger Property="Text" Value="{x:Null}">
+								<Setter TargetName="Placeholder" Property="Visibility" Value="Visible" />
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="PlaceholderPasswordBoxStyle" TargetType="PasswordBox">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="PasswordBox">
+						<Grid>
+							<TextBlock x:Name="Placeholder"
+                               Text="{TemplateBinding Tag}"
+                               Foreground="Gray"
+                               Margin="5,0,0,0"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Center"
+                               Visibility="Visible"/>
+							<ScrollViewer x:Name="PART_ContentHost"/>
+						</Grid>
+				
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Application.Resources>
 </Application>
